@@ -1,7 +1,7 @@
 {
   "name": "lowcode-schema-editor",
   "version": "0.0.1",
-  "description": "The schema generator of the low-code platform currently supports form, table, and detail",
+  "description": "The schema generator of the low-code platform, currently supports form, table, and detail",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -36,7 +36,6 @@
     "react-ace": "^9.5.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.1",
-    "react-query": "^3.34.16",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
     "redux-persist": "^6.0.0",

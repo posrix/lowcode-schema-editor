@@ -2,7 +2,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { getPersistor } from '@rematch/persist';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { store } from 'src/models/store';
@@ -40,30 +39,19 @@ export async function unmount(props: QiankunBootProps) {
   );
 }
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
-
 function render(props: QiankunBootProps) {
   const MOUNT_NODE = props.container
     ? props.container.querySelector('#lowcode-schema-editor-root')
     : (document.getElementById('lowcode-schema-editor-root') as HTMLElement);
 
   ReactDOM.render(
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <PersistGate persistor={getPersistor()}>
-          <StyleSheetManager disableCSSOMInjection>
-            <App {...props} />
-          </StyleSheetManager>
-        </PersistGate>
-      </Provider>
-    </QueryClientProvider>,
+    <Provider store={store}>
+      <PersistGate persistor={getPersistor()}>
+        <StyleSheetManager disableCSSOMInjection>
+          <App {...props} />
+        </StyleSheetManager>
+      </PersistGate>
+    </Provider>,
     MOUNT_NODE
   );
 }
