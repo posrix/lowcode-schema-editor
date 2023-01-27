@@ -4,11 +4,7 @@ import { RootState, Dispatch } from 'src/models/store';
 import { Button, message, Modal } from 'antd';
 import Icon from 'src/components/Icon';
 import { CustomMode, LayoutModeType } from 'src/types/app';
-import {
-  produceDetailSchema,
-  produceFormSchema,
-  produceTableSchema,
-} from 'src/utils/app';
+import { produceDetailSchema, produceFormSchema, produceTableSchema } from 'src/utils/app';
 import { AnyObject } from 'src/types/app';
 import { isEmpty } from 'lodash';
 import { Container, LayoutButton, LayoutButtonContainer, ActionButtonContainer } from './styled';
@@ -113,8 +109,8 @@ const Toolbar: React.FC<ToolbarProps> = ({ noLayout = false }) => {
         extra.columns = tableColumns;
         break;
     }
-    message.info('')
-    // http save request
+    message.info('The save request needs to be implemented by yourself');
+    // TODO save request
   };
 
   return (
@@ -148,9 +144,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ noLayout = false }) => {
         </Button>
       </ActionButtonContainer>
       <Modal
-        title={
-          customMode === CustomMode.Detail ? '自定义详情 Schema 预览' : '自定义表单 Schema 预览'
-        }
+        title="Schema 预览"
         open={schemaModalVisible}
         width={800}
         footer={null}
